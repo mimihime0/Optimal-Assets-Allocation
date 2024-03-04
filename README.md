@@ -11,11 +11,14 @@ The goal is to find the allocation of assets that maximizes the portfolio’s ex
 Project Structure: 
 
 **This project is devided to two parts, this is the first part.
+
 Brute Force Approach: Implement a brute force algorithm to exhaustively search all possible asset allocations within the given investment amount. 
 Evaluate the return and risk of each allocation and find the one that maximizes the expected return while keeping the risk within the specified tolerance level.
 
 Contents:
 
 -"/src": containt the source code of the algorithm in Java.
+
 -"/screenshots": contains screenshots of the sample run as well as addtional test cases.
+
 -"README.md": you are reading it right now!
