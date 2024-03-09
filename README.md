@@ -17,8 +17,8 @@ The goal is to find the allocation of assets that maximizes the portfolio’s ex
 
 ## Contents:
 
-- "src/": containt the source code of the algorithm in Java.
+- "Brute-Force/src/": containt the source code of the algorithm in Java.
 
-- "screenshots/": contains screenshots of the sample run as well as addtional test cases.
+- "Brute-Force/screenshots/": contains screenshots of the sample run as well as addtional test cases.
 
 - "README.md": you are reading it right now!
