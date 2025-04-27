@@ -56,9 +56,9 @@ Risk tolerance level is 0.024
 
 ## Usage
 1. **Prepare Files:** Ensure you have the following Java source files in a directory:
-* Asset.java
-* OptimalPortfolio.java
-* PortfolioOptimizer.java And the input file (assets.txt or your custom file) in the same directory.
+    * Asset.java
+    * OptimalPortfolio.java
+    * PortfolioOptimizer.java And the input file (assets.txt or your custom file) in the same directory.
 2. **Compile:** Open a terminal or command prompt, navigate to the directory containing the files, and compile all Java source files:
   ```
   javac *.java
