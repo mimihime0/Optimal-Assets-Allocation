@@ -1,47 +1,73 @@
-public class Asset {
-    
-    String id;
-    double expectedReturn;
-    double riskLevel;
-    int quantity;
+import java.util.Objects;
 
-Asset(String id, double expectedReturn, double riskLevel, int quantity) {
-         this.id = id;
-         this.expectedReturn = expectedReturn;
-         this.riskLevel = riskLevel;
-         this.quantity = quantity;
+public class Asset {
+
+    private String id;
+    private double expectedReturn;
+    private double riskLevel;
+    private int maxQuantity; 
+    private int allocatedQuantity; 
+
+    public Asset(String id, double expectedReturn, double riskLevel, int maxQuantity) {
+        this.id = id;
+        this.expectedReturn = expectedReturn;
+        this.riskLevel = riskLevel;
+        this.maxQuantity = maxQuantity;
+        this.allocatedQuantity = 0; 
     }
 
-public String getId() {
-   return id;
-}
+    public Asset(Asset original, int allocatedQuantity) {
+        this.id = original.id;
+        this.expectedReturn = original.expectedReturn;
+        this.riskLevel = original.riskLevel;
+        this.maxQuantity = original.maxQuantity;
+        this.allocatedQuantity = allocatedQuantity;
+    }
 
-public void setId(String id) {
-   this.id = id;
-}
+    
+    public String getId() {
+        return id;
+    }
 
-public double getExpectedReturn() {
-   return expectedReturn;
-}
+    public double getExpectedReturn() {
+        return expectedReturn;
+    }
 
-public void setExpectedReturn(double expectedReturn) {
-   this.expectedReturn = expectedReturn;
-}
+    public double getRiskLevel() {
+        return riskLevel;
+    }
 
-public double getRiskLevel() {
-   return riskLevel;
-}
+    public int getMaxQuantity() {
+        return maxQuantity;
+    }
 
-public void setRiskLevel(double riskLevel) {
-   this.riskLevel = riskLevel;
-}
+     public int getAllocatedQuantity() {
+        return allocatedQuantity;
+    }
 
-public int getQuantity() {
-   return quantity;
-}
+     public void setAllocatedQuantity(int allocatedQuantity) {
+        this.allocatedQuantity = allocatedQuantity;
+    }
 
-public void setQuantity(int quantity) {
-   this.quantity = quantity;
-}
+    @Override
+    public String toString() {
+        return id + ": " + allocatedQuantity + " units";
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Asset asset = (Asset) o;
+        return Double.compare(asset.expectedReturn, expectedReturn) == 0 &&
+               Double.compare(asset.riskLevel, riskLevel) == 0 &&
+               maxQuantity == asset.maxQuantity &&
+               allocatedQuantity == asset.allocatedQuantity &&
+               Objects.equals(id, asset.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, expectedReturn, riskLevel, maxQuantity, allocatedQuantity);
+    }
 }
