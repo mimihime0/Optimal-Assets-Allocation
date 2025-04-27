@@ -1,5 +1,12 @@
-AAPL : 0.05 : 0.02 : 1000
-GOOGL : 0.08 : 0.03 : 500
-MSFT : 0.04 : 0.015 : 800
-Total investment is 1000 units
-Risk tolerance level is 0.024
+NVDA : 0.06 : 0.025 : 500
+AMZN : 0.08 : 0.040 : 300
+TSLA : 0.05 : 0.015 : 700
+JPM : 0.10 : 0.060 : 200
+V : 0.07 : 0.030 : 450
+META : 0.04 : 0.010 : 800
+XOM : 0.12 : 0.075 : 150
+UNH : 0.09 : 0.050 : 350
+BAC : 0.03 : 0.008 : 1000
+PFE : 0.11 : 0.065 : 250
+Total investment is 1500 units
+Risk tolerance level is 0.045
