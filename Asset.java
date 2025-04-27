@@ -1,5 +1,5 @@
 import java.util.Objects;
-
+ 
 public class Asset {
 
     private String id;
