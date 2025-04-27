@@ -1,6 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
-
+ 
 public class OptimalPortfolio {
     private List<Asset> optimalAllocation; 
     private double expectedPortfolioReturn;
