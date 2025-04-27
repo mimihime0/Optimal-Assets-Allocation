@@ -1,38 +1,68 @@
 import java.util.List;
+import java.util.ArrayList;
 
-public class Optimalportfolio {
-    private List<Asset> asset;// with estimated units
-    private double EPR;// Expected Portfolio Return
-    private double PRL;// Portfolio Risk Level
+public class OptimalPortfolio {
+    private List<Asset> optimalAllocation; 
+    private double expectedPortfolioReturn;
+    private double portfolioRiskLevel;
+    private boolean foundFeasibleSolution; 
 
-    public Optimalportfolio(List<Asset> optimasolutions, double maxExpectedReturn, double riskLevel) {
-        asset = optimasolutions;
-        EPR = maxExpectedReturn;
-        PRL = riskLevel;
+    public OptimalPortfolio() {
+        this.optimalAllocation = new ArrayList<>();
+        this.expectedPortfolioReturn = -Double.MAX_VALUE; 
+        this.portfolioRiskLevel = Double.MAX_VALUE; 
+        this.foundFeasibleSolution = false;
     }
 
-    public List<Asset> getAsset() {
-        return asset;
+     public OptimalPortfolio(List<Asset> allocation, double expectedReturn, double riskLevel) {
+        this.optimalAllocation = allocation;
+        this.expectedPortfolioReturn = expectedReturn;
+        this.portfolioRiskLevel = riskLevel;
+        this.foundFeasibleSolution = true; 
     }
 
-    public void setAsset(List<Asset> asset) {
-        this.asset = asset;
+
+    public List<Asset> getOptimalAllocation() {
+        return optimalAllocation;
     }
 
-    public double getEPR() {
-        return EPR;
+    public double getExpectedPortfolioReturn() {
+        return expectedPortfolioReturn;
     }
 
-    public void setEPR(double ePR) {
-        EPR = ePR;
+    public double getPortfolioRiskLevel() {
+        return portfolioRiskLevel;
     }
 
-    public double getPRL() {
-        return PRL;
+     public boolean isFoundFeasibleSolution() {
+        return foundFeasibleSolution;
     }
 
-    public void setPRL(double pRL) {
-        PRL = pRL;
+ 
+    public void updatePortfolio(List<Asset> currentAllocation, double currentReturn, double currentRisk) {
+
+        List<Asset> allocationCopy = new ArrayList<>();
+        for (Asset asset : currentAllocation) {
+            allocationCopy.add(new Asset(asset, asset.getAllocatedQuantity()));
+        }
+
+        this.optimalAllocation = allocationCopy;
+        this.expectedPortfolioReturn = currentReturn;
+        this.portfolioRiskLevel = currentRisk;
+        this.foundFeasibleSolution = true; 
     }
 
+    @Override
+    public String toString() {
+        if (!foundFeasibleSolution) {
+            return "No feasible solution found within the specified risk tolerance.";
+        }
+        StringBuilder sb = new StringBuilder("Optimal Allocation:\n");
+        for (Asset asset : optimalAllocation) {
+            sb.append("  ").append(asset.toString()).append("\n");
+        }
+        sb.append("Expected Portfolio Return: ").append(String.format("%.3f", expectedPortfolioReturn)).append("\n");
+        sb.append("Portfolio Risk Level: ").append(String.format("%.3f", portfolioRiskLevel));
+        return sb.toString();
+    }
 }
