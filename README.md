@@ -9,7 +9,7 @@ This implementation uses a **brute-force recursive approach** to explore all val
 *Disclaimer: This project is designed for educational purposes to demonstrate a brute-force optimization approach and may not be suitable for real-world financial decisions.*
 
 ## Features
-
+ 
 * Determines optimal asset allocation based on maximizing return within a risk tolerance.
 * Reads asset data (ID, expected return, risk, max quantity), total investment, and risk tolerance from a configuration file (`assets.txt`).
 * Handles a variable number of assets defined in the input file.
